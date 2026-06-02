@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 5%;
+    --foreground: 210 40% 98%;
+    --card: 230 22% 9%;
+    --card-foreground: 210 40% 98%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 230 25% 5%;
+    --muted: 230 18% 14%;
+    --muted-foreground: 215 16% 58%;
+    --accent: 230 18% 16%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 230 16% 18%;
+    --glow: 199 89% 48%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .mesh-bg {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        hsl(var(--glow) / 0.18),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 100% 0%,
+        hsl(280 60% 40% / 0.08),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 50% 30% at 0% 100%,
+        hsl(var(--glow) / 0.06),
+        transparent
+      );
+  }
+
+  .glass-card {
+    @apply rounded-xl border border-white/[0.06] bg-card/80 shadow-card backdrop-blur-xl;
+  }
+
+  .section-label {
+    @apply text-[11px] font-semibold uppercase tracking-widest text-muted-foreground;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted) / 0.5) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+
+  .prose-report {
+    @apply text-[15px] leading-relaxed;
+  }
+
+  .prose-report h1 {
+    @apply mb-4 mt-6 text-xl font-bold text-foreground first:mt-0;
+  }
+
+  .prose-report h2 {
+    @apply mb-3 mt-5 text-lg font-semibold text-foreground;
+  }
+
+  .prose-report h3 {
+    @apply mb-2 mt-4 text-base font-semibold text-foreground;
+  }
+
+  .prose-report p {
+    @apply mb-3 text-muted-foreground;
+  }
+
+  .prose-report ul,
+  .prose-report ol {
+    @apply mb-3 ml-5 space-y-1 text-muted-foreground;
+  }
+
+  .prose-report ul {
+    @apply list-disc;
+  }
+
+  .prose-report ol {
+    @apply list-decimal;
+  }
+
+  .prose-report li {
+    @apply text-muted-foreground;
+  }
+
+  .prose-report strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .prose-report a {
+    @apply text-primary underline-offset-2 hover:underline;
+  }
+
+  .prose-report code {
+    @apply rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-primary;
+  }
+
+  .prose-report blockquote {
+    @apply border-l-2 border-primary/50 pl-4 italic text-muted-foreground;
+  }
+}
