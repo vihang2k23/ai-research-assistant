@@ -50,7 +50,7 @@ export function ReportViewer({ text, status, className }: ReportViewerProps) {
       const element = document.createElement("div");
       element.innerHTML = `
         <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a;">
-          <div style="background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%); padding: 35px 30px; border-radius: 12px; color: white; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);">
+          <div style="background-color: #2563eb; padding: 35px 30px; border-radius: 12px; color: white; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);">
             <h1 style="margin: 0 0 12px 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em;">Research Report</h1>
             <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 16px; font-weight: 500;">
               Generated on ${new Date().toLocaleDateString()} • ${new Date().toLocaleTimeString()}

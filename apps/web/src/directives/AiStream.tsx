@@ -91,7 +91,7 @@ export function AiStream({
       <div data-testid="ai-stream-content">{content}</div>
       {isStreaming && (
         <span
-          className="ml-0.5 inline-block h-[1.1em] w-0.5 animate-blink rounded-full bg-gradient-to-b from-primary to-cyan-400 align-middle shadow-glow"
+          className="ml-0.5 inline-block h-[1.1em] w-0.5 animate-blink rounded-full bg-primary align-middle shadow-sm"
           data-testid="ai-stream-cursor"
           aria-hidden
         />

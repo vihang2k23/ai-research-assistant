@@ -29,7 +29,7 @@ function sleep(ms: number): Promise<void> {
 }
 
 function shouldTryNext(status: number): boolean {
-  return status === 429 || status === 403 || status === 404;
+  return status === 429 || status === 403 || status === 404 || status >= 500;
 }
 
 export async function embedTextGemini(text: string): Promise<number[]> {

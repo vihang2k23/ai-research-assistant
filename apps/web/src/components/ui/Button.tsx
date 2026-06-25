@@ -19,7 +19,7 @@ export function Button({
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         "disabled:pointer-events-none disabled:opacity-50",
         variant === "default" &&
-          "bg-gradient-to-r from-primary to-cyan-400 text-white shadow-glow hover:brightness-110 active:scale-[0.98]",
+          "bg-primary text-white shadow-sm hover:brightness-110 active:scale-[0.98]",
         variant === "outline" &&
           "border border-border bg-white/[0.02] hover:border-primary/40 hover:bg-white/[0.04]",
         variant === "ghost" && "hover:bg-white/[0.05]",

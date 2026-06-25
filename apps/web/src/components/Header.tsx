@@ -21,11 +21,11 @@ export function Header({ streamStatus, mockMode = false }: HeaderProps) {
 
   return (
     <header className="relative border-b border-white/[0.06]">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.06] to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-primary/[0.04] pointer-events-none" />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-8 sm:px-6 sm:py-10 md:flex-row md:items-end md:justify-between">
         <div className="space-y-3">
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-cyan-400 text-primary-foreground shadow-glow">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
               <SparklesIcon className="h-5 w-5" />
             </div>
             <Badge variant="primary">LangGraph Agent</Badge>

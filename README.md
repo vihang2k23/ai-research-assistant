@@ -59,3 +59,9 @@ npm run db:init --workspace=server
 If you rename the static site in Render, update `CORS_ORIGIN` on the API to match its `https://…onrender.com` URL.
 
 **Note:** Free Web Services sleep after inactivity; the first request may take ~30s to wake up. SSE research requests need the API awake for the full stream.
+
+## Langfuse Tracing
+![Langfuse Trace](docs/langfuse_trace.png)
+
+## Walkthrough Demo
+[Watch the Walkthrough Demo on Loom](https://www.loom.com/share/265e0ee60b2e4c468be842207f28b2f4)

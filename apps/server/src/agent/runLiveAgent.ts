@@ -6,11 +6,17 @@ import { webSearchNode } from "./nodes/webSearch.js";
 import { createInitialState, type AgentState } from "./state.js";
 import { Langfuse } from "langfuse";
 
-const langfuse = new Langfuse({
-  publicKey: process.env.LANGFUSE_PUBLIC_KEY,
-  secretKey: process.env.LANGFUSE_SECRET_KEY,
-  baseUrl: process.env.LANGFUSE_HOST ?? "https://cloud.langfuse.com"
-});
+let langfuseInstance: Langfuse | null = null;
+function getLangfuse() {
+  if (!langfuseInstance) {
+    langfuseInstance = new Langfuse({
+      publicKey: process.env.LANGFUSE_PUBLIC_KEY,
+      secretKey: process.env.LANGFUSE_SECRET_KEY,
+      baseUrl: process.env.LANGFUSE_HOST ?? "https://cloud.langfuse.com"
+    });
+  }
+  return langfuseInstance;
+}
 
 export type AgentStreamEmitter = (event: SseEvent) => void;
 
@@ -25,6 +31,7 @@ export async function runLiveAgent(
 ): Promise<void> {
   let state = createInitialState(question);
 
+  const langfuse = getLangfuse();
   const trace = langfuse.trace({
     name: "research-agent-run",
     input: { question },

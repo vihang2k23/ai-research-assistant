@@ -63,7 +63,7 @@ export function AgentProgress({
                   step.status === "done" &&
                     "bg-primary text-primary-foreground shadow-glow",
                   step.status === "active" &&
-                    "bg-gradient-to-br from-primary to-cyan-400 text-primary-foreground shadow-glow ring-primary/30",
+                    "bg-primary text-primary-foreground shadow-sm ring-primary/30",
                   step.status === "pending" &&
                     "bg-muted/80 text-muted-foreground",
                   step.status === "error" &&
