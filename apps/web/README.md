@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173. API requests proxy to `http://localhost:3001` (backend required for live research).
+Open http://localhost:8001. API requests proxy to `http://localhost:3001` (backend required for live research).
 
 ## Structure
 

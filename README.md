@@ -9,7 +9,7 @@ npm install
 npm run db:up
 cp .env.example .env          # add API keys
 npm run dev:server            # :3001
-npm run dev:web               # :5173
+npm run dev:web               # :8001
 ```
 
 Frontend: set `VITE_USE_MOCK=false` in `apps/web/.env` to use the API.
