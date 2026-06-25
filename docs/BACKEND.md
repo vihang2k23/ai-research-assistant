@@ -9,9 +9,9 @@ POST /api/research
          ├─ (no API keys) runStubAgentStream.ts
          └─ (keys set)     runLiveAgent.ts
                 ├─ webSearch      → Tavily
-                ├─ vectorRetrieval → OpenAI embeddings + MongoDB
-                ├─ rerank         → heuristic ranking
-                └─ synthesis      → Claude stream + MongoDB save
+                ├─ vectorRetrieval → OpenAI embeddings + Postgres
+                │
+                └─ synthesis      → Claude stream + Postgres save
 ```
 
 LangGraph batch graph (no token streaming): `agent/graph.langgraph.ts`
@@ -39,15 +39,15 @@ Without these, the server uses the **stub stream** (same SSE shape, mock content
 
 | Variable | Service |
 |----------|---------|
-| `MONGODB_URI` | Semantic memory |
+| `POSTGRES_URL` | Semantic memory |
 | `LANGFUSE_*` | Tracing |
 
 ## Endpoints
 
-- `GET /api/health` — health + MongoDB status
+- `GET /api/health` — health + Postgres status
 - `POST /api/research` — SSE stream (`packages/shared-types`)
 
-## MongoDB
+## Postgres
 
 Collection: `research_documents` — see `apps/server/src/db/schema.ts`
 

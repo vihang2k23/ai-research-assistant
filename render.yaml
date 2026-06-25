@@ -1,5 +1,5 @@
 # Render Blueprint — https://render.com/docs/blueprint-spec
-# MongoDB: use MongoDB Atlas and set MONGODB_URI on ai-research-api.
+# Postgres: use Render Postgres or Supabase and set POSTGRES_URL on ai-research-api.
 
 services:
   - type: web
@@ -13,7 +13,7 @@ services:
         value: "20"
       - key: CORS_ORIGIN
         value: https://ai-research-web.onrender.com
-      - key: MONGODB_URI
+      - key: POSTGRES_URL
         sync: false
       - key: TAVILY_API_KEY
         sync: false

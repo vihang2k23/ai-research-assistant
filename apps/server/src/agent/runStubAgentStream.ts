@@ -18,7 +18,7 @@ const STUB_VECTOR: VectorResult[] = [
   {
     id: "stub-1",
     question: "Semantic memory in research agents",
-    snippet: "Embeddings in MongoDB enable semantic similarity retrieval.",
+    snippet: "Embeddings in Postgres enable semantic similarity retrieval.",
     score: 0.87,
   },
 ];
@@ -58,7 +58,7 @@ Replace \`runStubAgentStream\` with the LangGraph agent in \`graph.ts\`.
 
 ## Gaps
 
-- Tavily, Gemini API key, MongoDB
+- Tavily, Gemini API key, Postgres
 `;
 }
 

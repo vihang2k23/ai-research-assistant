@@ -1,6 +1,6 @@
 # AI Research Assistant
 
-Production-style research app: React UI, Express API, LangGraph-ready agent pipeline, MongoDB memory, Langfuse tracing.
+Production-style research app: React UI, Express API, LangGraph-ready agent pipeline, Postgres (pgvector) memory, Langfuse tracing.
 
 ## Quick start
 
@@ -26,7 +26,7 @@ Frontend: set `VITE_USE_MOCK=false` in `apps/web/.env` to use the API.
 ## Agent modes
 
 - **Stub** — no API keys; fast mock SSE (dev/demo)
-- **Live** — Tavily + Google Gemini (report + embeddings) + MongoDB
+- **Live** — Tavily + Google Gemini (report + embeddings) + Postgres (pgvector)
 
 ## Deploy on Render (GitHub)
 
@@ -37,13 +37,13 @@ This repo includes [`render.yaml`](render.yaml) for a **Blueprint** with two ser
 | `ai-research-api` (Web Service, Node) | Express API (`apps/server`) |
 | `ai-research-web` (Static Site) | React UI (`apps/web/dist`) |
 
-After the first deploy, run MongoDB indexes once (Render shell or locally with production `MONGODB_URI`):
+After the first deploy, verify Postgres connection and extensions (Render shell or locally with production `POSTGRES_URL`):
 
 ```bash
 npm run db:init --workspace=server
 ```
 
-**MongoDB is not on Render.** Use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (free tier), then set `MONGODB_URI` on the API service.
+**Postgres is not bundled on Render Web Services.** Use [Supabase](https://supabase.com) or [Render Postgres] (free tier), then set `POSTGRES_URL` on the API service.
 
 ### Steps
 
@@ -51,7 +51,7 @@ npm run db:init --workspace=server
 2. In [Render](https://dashboard.render.com) → **New** → **Blueprint** → connect the repo.
 3. Render reads `render.yaml` and creates both services.
 4. When prompted, set secrets on **ai-research-api**:
-   - `MONGODB_URI` — Atlas connection string
+   - `POSTGRES_URL` — Database connection string
    - `TAVILY_API_KEY`, `GEMINI_API_KEY` (optional `GEMINI_API_KEY_2`)
 5. Wait for both deploys to finish.
 6. Open **ai-research-web** URL. API health: `https://ai-research-api.onrender.com/api/health`

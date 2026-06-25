@@ -54,7 +54,7 @@ export async function synthesisNode(
   try {
     embedding = await embedText(report);
   } catch (err) {
-    console.warn("Could not embed report for MongoDB — saving without embedding:", err);
+    console.warn("Could not embed report for Postgres — saving without embedding:", err);
   }
 
   await saveResearchDocument({
